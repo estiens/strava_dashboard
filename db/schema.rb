@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140829222146) do
+ActiveRecord::Schema.define(version: 20140830051506) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,19 @@ ActiveRecord::Schema.define(version: 20140829222146) do
     t.datetime "datetime"
     t.integer  "biker_id"
     t.string   "strava_id"
+    t.text     "polyline"
+    t.float    "lat_start"
+    t.float    "lng_start"
+    t.float    "lat_end"
+    t.float    "lng_end"
+  end
+
+  create_table "waypoints", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.integer  "ride_id"
   end
 
 end

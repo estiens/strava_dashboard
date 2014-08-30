@@ -13,4 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require leaflet
+//= require underscore
+//= require leaflet-heat
+//= require simpleheat
 //= require_tree .

@@ -34,6 +34,11 @@ gem 'rails_12factor', group: :production
 
 gem 'strava-api-v3'
 gem 'logger'
+gem 'leaflet-rails'
+gem 'polylines'
+gem 'gon'
+gem 'underscore-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

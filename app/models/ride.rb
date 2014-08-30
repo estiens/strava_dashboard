@@ -1,5 +1,7 @@
 class Ride < ActiveRecord::Base
   belongs_to :biker
+  has_many :waypoints
+  after_save :make_polyline_array
 
   scope :between_dates, ->(begin_date, end_date) {
     where("datetime between ? and ?", begin_date, end_date)
@@ -12,4 +14,35 @@ class Ride < ActiveRecord::Base
   def self.last_week
     self.between_dates((Time.now - 7.days).beginning_of_week, (Time.now-7.days).end_of_week)
   end
+
+  def self.all_polylines
+    array =[]
+    self.all.each do |ride|
+      array << ride.lat_lng_array
+    end
+    array
+  end
+
+  def lat_lng_array
+    array = []
+    self.waypoints.each do |waypoint|
+      array << [waypoint.latitude, waypoint.longitude]
+    end
+    array
+  end
+
+  def make_polyline_array
+    polyline = self.polyline
+    array = Polylines::Decoder.decode_polyline(polyline)
+    array.each do |latlng|
+      waypoint = Waypoint.new
+      waypoint.latitude = latlng[0]
+      waypoint.longitude = latlng[1]
+      waypoint.ride_id = self.id
+      waypoint.save
+    end
+  end
+
+
+
 end
