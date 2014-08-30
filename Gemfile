@@ -30,6 +30,8 @@ gem 'spring',        group: :development
 gem 'pry-rails', group: :development
 gem 'pry-nav', group: :development
 
+gem 'rails_12factor', group: :production
+
 gem 'strava-api-v3'
 gem 'logger'
 # Use ActiveModel has_secure_password
