@@ -10,11 +10,11 @@ $ ->
   # }).addTo(map);
 
   lat_lngs = []
-  for array in gon.rides
-    colors = ["red","blue", "green"]
-    color = _.sample(colors)
-    polyline = L.polyline(array,{color: "black", opacity: 0.4, weight: 2}).addTo(map);
-    for lat_lng in array
-      lat_lngs.push(lat_lng)
-
-  # heat = L.heatLayer(lat_lngs, {blur: 25, radius: 20}).addTo(map);
+  array_colors = ['yellow','purple','red','green','black']
+  for k,v of gon.rides
+    color = _.shuffle(array_colors).pop()
+    console.log color
+    $('#legend').append( "<li style='color:#{color}'> #{k} </li>" )
+    colors = ['red','blue','green','black']
+    for array in v
+      polyline = L.polyline(array,{color: color, opacity: 0.4, weight: 2}).addTo(map);

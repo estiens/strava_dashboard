@@ -17,5 +17,25 @@ class Biker < ActiveRecord::Base
     self.rides.last_week.average(:avg_speed).to_f.round(2)
   end
 
+  def self.all_biker_lat_lngs
+    hash = {}
+    self.all.each do |biker|
+      next if biker.this_week_distance == 0 && biker.last_week_distance == 0
+      hash[biker.name] = biker.biker_lat_lngs
+    end
+    hash
+  end
+
+  def biker_lat_lngs
+    array = []
+    self.rides.this_week.each do |ride|
+      array << ride.lat_lng_array
+    end
+    self.rides.last_week.each do |ride|
+      array << ride.lat_lng_array
+    end
+    array
+  end
+
 
 end
