@@ -17,4 +17,5 @@
 //= require underscore
 //= require leaflet-heat
 //= require simpleheat
+//=require mapbox
 //= require_tree .
