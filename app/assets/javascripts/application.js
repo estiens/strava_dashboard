@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require foundation
 //= require turbolinks
 //= require leaflet
 //= require underscore
@@ -19,3 +20,5 @@
 //= require simpleheat
 //=require mapbox
 //= require_tree .
+
+$(function(){ $(document).foundation(); });
