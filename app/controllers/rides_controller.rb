@@ -5,4 +5,12 @@ class RidesController < ApplicationController
     gon.rides = Biker.all_biker_lat_lngs
   end
 
+  def show
+    @ride = Ride.find(params[:id])
+
+    respond_to do |format|
+      format.json
+    end
+  end
+
 end

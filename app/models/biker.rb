@@ -29,10 +29,14 @@ class Biker < ActiveRecord::Base
   def biker_lat_lngs
     array = []
     self.rides.this_week.each do |ride|
-      array << ride.lat_lng_array
+      hash = Hash.new
+      hash[ride.id] = ride.lat_lng_array
+      array << hash
     end
     self.rides.last_week.each do |ride|
-      array << ride.lat_lng_array
+      hash = Hash.new
+      hash[ride.id] = ride.lat_lng_array
+      array << hash
     end
     array
   end
