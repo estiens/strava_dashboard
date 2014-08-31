@@ -43,6 +43,17 @@ class Ride < ActiveRecord::Base
     end
   end
 
+  def self.maximum_distance(scope = "all")
+    rides = Ride.send(scope)
+    max_distance = rides.maximum(:distance)
+    Ride.where("distance = ?", max_distance).first
+  end
+
+  def self.maximum_speed(scope = "all")
+    rides = Ride.send(scope)
+    max_speed = rides.maximum(:avg_speed)
+    Ride.where("avg_speed = ?", max_speed).first
+  end
 
 
 end

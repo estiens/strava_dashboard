@@ -10,4 +10,24 @@
     #details
       #detailbox
         #h2 RIDE DETAILS
+.row
+  #overallstats
+    .medium-6.columns
+      %h3 This Week
+      Total Rides: #{@this_week_rides.count}
+      %br
+      Total Distance: #{@this_week_rides.sum(:distance)} miles
+      %br
+      Longest Ride: #{@this_week_longest.biker.name} - #{@this_week_longest.name}: #{@this_week_longest.distance} miles
+      %br
+      Fastest Ride: #{@this_week_fastest.biker.name} - #{@this_week_fastest.name}: #{@this_week_fastest.avg_speed} mph
+    .medium-6.columns
+      %h3 Last Week
+      Total Rides: #{@last_week_rides.count}
+      %br
+      Total Distance: #{@last_week_rides.sum(:distance)} miles
+      %br
+      Longest Ride: #{@last_week_longest.biker.name} - #{@last_week_longest.name}: #{@last_week_longest.distance} miles
+      %br
+      Fastest Ride: #{@last_week_fastest.biker.name} - #{@last_week_fastest.name}: #{@last_week_fastest.avg_speed} mph
 
