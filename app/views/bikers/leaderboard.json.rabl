@@ -4,7 +4,7 @@ collection @bikers, object_root: false
     biker.this_week_distance
   end
   node :speed do |biker|
-    biker.this_week_speed
+    biker.this_week_avg_speed
   end
 
 

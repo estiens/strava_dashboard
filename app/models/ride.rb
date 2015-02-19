@@ -15,6 +15,10 @@ class Ride < ActiveRecord::Base
     self.between_dates((Time.now - 7.days).beginning_of_week, (Time.now-7.days).end_of_week)
   end
 
+  def self.this_year
+    self.between_dates(Time.now.beginning_of_year, Time.now)
+  end
+
   def self.all_polylines
     array =[]
     self.all.each do |ride|

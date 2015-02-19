@@ -9,12 +9,20 @@ class Biker < ActiveRecord::Base
     self.rides.last_week.sum(:distance).round(2) #miles
   end
 
-  def this_week_speed
+  def this_week_avg_speed
     self.rides.this_week.average(:avg_speed).to_f.round(2)
   end
 
-  def last_week_speed
+  def last_week_avg_speed
     self.rides.last_week.average(:avg_speed).to_f.round(2)
+  end
+
+  def this_year_distance
+    self.rides.this_year.sum(:distance).round(2)
+  end
+
+  def this_year_avg_speed
+    self.rides.this_year.average(:avg_speed).to_f.round(2)
   end
 
   def self.all_biker_lat_lngs

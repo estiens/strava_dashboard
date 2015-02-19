@@ -15,4 +15,12 @@ class BikersController < ApplicationController
       format.json
     end
   end
+
+  def this_year_leaderboard
+    @bikers = Biker.all.sort_by(&:this_year_distance).reverse.select{|biker| biker.this_year_distance != 0}
+
+    respond_to do |format|
+      format.json
+    end
+  end
 end
