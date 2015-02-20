@@ -27,10 +27,14 @@ namespace :import do
       datetime = ride["start_date_local"].to_datetime
       avg_speed = ride["distance"] / (ride["moving_time"] / 60.0 / 60.0)
       elevation = ride["total_elevation_gain"]
-      lat_start = ride["start_latlng"][0]
-      lng_start = ride["start_latlng"][0]
-      lat_end = ride["end_latlng"][0]
-      lng_end = ride["end_latlng"][1]
+      begin
+        lat_start = ride["start_latlng"][0]
+        lng_start = ride["start_latlng"][0]
+        lat_end = ride["end_latlng"][0]
+        lng_end = ride["end_latlng"][1]
+      rescue
+        puts "problem with latlngs for ride #{name} for #{biker}"
+      end
       polyline = ride["map"]["summary_polyline"]
       Ride.create(strava_id: strava_id, biker_id: biker.id, distance: distance,
                   datetime: datetime, avg_speed: avg_speed, elevation: elevation,
