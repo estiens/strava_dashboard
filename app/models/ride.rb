@@ -36,6 +36,7 @@ class Ride < ActiveRecord::Base
   end
 
   def make_polyline_array
+    return false if self.polyline.blank?
     polyline = self.polyline
     array = Polylines::Decoder.decode_polyline(polyline)
     array.each do |latlng|
