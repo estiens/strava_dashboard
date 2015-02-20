@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140831190023) do
+ActiveRecord::Schema.define(version: 20150220003239) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20140831190023) do
     t.float    "lng_start"
     t.float    "lat_end"
     t.float    "lng_end"
+    t.string   "type"
   end
 
   create_table "waypoints", force: true do |t|
