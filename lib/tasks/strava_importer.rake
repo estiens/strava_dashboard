@@ -32,10 +32,10 @@ namespace :import do
         lng_start = ride["start_latlng"][0]
         lat_end = ride["end_latlng"][0]
         lng_end = ride["end_latlng"][1]
+        polyline = ride["map"]["summary_polyline"]
       rescue
         puts "problem with latlngs for ride #{name} for #{biker}"
       end
-      polyline = ride["map"]["summary_polyline"]
       Ride.create(strava_id: strava_id, biker_id: biker.id, distance: distance,
                   datetime: datetime, avg_speed: avg_speed, elevation: elevation,
                   name: name, lat_start: lat_start, lat_end: lat_end, lng_start: lng_start,
