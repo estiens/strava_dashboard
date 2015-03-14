@@ -59,7 +59,7 @@ $ ->
     color = array_colors[i] or Spectra.random()
     color = Spectra(color)
     i += 1
-    $('#legend').append( "<li id='#{biker.name}' style='color:#{color}'> #{biker.name}<br>#{biker.this_week_distance}mi </li>" )
+    $('#legend').append( "<li id='#{biker.name}' style='color:#{color}'> #{biker.name}<br>#{biker.two_week_distance}mi </li>" )
     for ridehash in biker.lat_lngs
       for ride_id, coordinates of ridehash
         polyline = L.polyline(coordinates,{color: color, opacity: 0.8, weight: 2, classname: ride_id+color}).on('mouseover', onMouseover).on('mouseout', onMouseout).addTo(map);

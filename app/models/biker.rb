@@ -32,7 +32,8 @@ class Biker < ActiveRecord::Base
       array.push({ name: biker.name,
         lat_lngs: biker.biker_lat_lngs,
         this_week_distance: biker.this_week_distance,
-        last_week_distance: biker.last_week_distance
+        last_week_distance: biker.last_week_distance,
+        two_week_distance: (biker.this_week_distance + biker.last_week_distance)
       })
     end
     array
