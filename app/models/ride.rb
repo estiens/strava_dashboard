@@ -59,6 +59,4 @@ class Ride < ActiveRecord::Base
     max_speed = rides.maximum(:avg_speed)
     Ride.where("avg_speed = ?", max_speed).first
   end
-
-
 end

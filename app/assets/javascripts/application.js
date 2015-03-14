@@ -18,7 +18,8 @@
 //= require underscore
 //= require leaflet-heat
 //= require simpleheat
-//=require mapbox
+//= require mapbox
+//= require spectra.min.js
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
