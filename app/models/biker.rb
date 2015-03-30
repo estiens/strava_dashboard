@@ -56,7 +56,7 @@ class Biker < ActiveRecord::Base
 
   def thirty_days_count
     count = 0
-    base_date = Time.parse("Feb 1 2015")
+    base_date = Time.parse("April 1 2015")
     (0..29).each do |n|
       if self.rides.any? {|ride| ride.datetime > base_date+n.days && ride.datetime < base_date+(n+1).days}
           count += 1
