@@ -23,4 +23,8 @@ class BikersController < ApplicationController
       format.json
     end
   end
+
+  def thirty_days_count
+    @bikers = Biker.all.sort_by(&:thirty_days_count).reverse.select{|biker| biker.thirty_days_count > 0}
+  end
 end
