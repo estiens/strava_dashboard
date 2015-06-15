@@ -4,7 +4,7 @@ class RidesController < ApplicationController
     @rides = Ride.all
     @this_week_rides = Ride.this_week
     @last_week_rides = Ride.last_week
-    @bikers = Biker.all.sort_by(&:this_week_distance).reverse.select{|biker| biker.this_week_distance != 0}
+    @bikers = Biker.current.sort_by(&:this_week_distance).reverse.select{|biker| biker.this_week_distance != 0}
     gon.bikers = Biker.build_biker_objects
   end
 
