@@ -65,5 +65,9 @@ class Biker < ActiveRecord::Base
     count
   end
 
+  def self.current
+    Biker.where(soft_delete_flag: false)
+  end
+
 
 end
